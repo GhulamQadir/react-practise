@@ -1,0 +1,6 @@
+button {
+  color: green;
+  background-color: beige;
+  cursor: pointer;
+  text-transform: uppercase;
+}

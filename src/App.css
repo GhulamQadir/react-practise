@@ -1,0 +1,13 @@
+body {
+  margin: 30px;
+}
+.cars {
+  height: 300px;
+  width: 300px;
+}
+
+.userDiv {
+  border: 0.5px solid rgb(169, 168, 168);
+  width: 50%;
+  margin: auto;
+}
