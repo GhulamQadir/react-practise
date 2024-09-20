@@ -19,6 +19,7 @@ import Theme from './libraries/Maintine practise/theme';
 import { MantineProvider } from '@mantine/core';
 import CollapseDesktop from './libraries/Maintine practise/AppShell'
 import BasicForm from './libraries/Formik/Form';
+import UserDetails from './context';
 // importing all images
 const images = require.context('./images', true)
 const imageList = images.keys().map(image => images(image));
@@ -97,15 +98,16 @@ const imageList = images.keys().map(image => images(image));
 
 // react router
 export default function App() {
-
+  const [userName, setUserName] = useState("")
   return (
-    <MantineProvider>
-      {/* <Theme /> */}
-      {/* <CollapseDesktop /> */}
-      {/* <AppRouter /> */}
-      {/* <TailwindPractise /> */}
+    <UserDetails.Provider value={{ userName, setUserName }}>
+      <MantineProvider>
+        {/* <Theme /> */}
+        {/* <CollapseDesktop /> */}
+        <AppRouter />
+        {/* <TailwindPractise /> */}
 
-      <BasicForm />
-    </MantineProvider>
-  )
+        {/* <BasicForm /> */}
+      </MantineProvider>
+    </UserDetails.Provider>)
 }
