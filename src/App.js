@@ -13,7 +13,12 @@ import QrCode from './components/qr-code';
 import Login from './components/login';
 import UseEffectBtn from './hooks/useEffectBtn';
 import AppRouter from './config/router';
-import TailwindPractise from './tailwind/tailwind-practise';
+import TailwindPractise from './libraries/tailwind/tailwind-practise'
+import Demo from './libraries/Maintine practise/AppLayout';
+import Theme from './libraries/Maintine practise/theme';
+import { MantineProvider } from '@mantine/core';
+import CollapseDesktop from './libraries/Maintine practise/AppShell'
+import BasicForm from './libraries/Formik/Form';
 // importing all images
 const images = require.context('./images', true)
 const imageList = images.keys().map(image => images(image));
@@ -92,10 +97,15 @@ const imageList = images.keys().map(image => images(image));
 
 // react router
 export default function App() {
+
   return (
-    <>
-      <AppRouter />
+    <MantineProvider>
+      {/* <Theme /> */}
+      {/* <CollapseDesktop /> */}
+      {/* <AppRouter /> */}
       {/* <TailwindPractise /> */}
-    </>
+
+      <BasicForm />
+    </MantineProvider>
   )
 }

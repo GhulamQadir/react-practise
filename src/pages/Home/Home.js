@@ -19,14 +19,14 @@ export default function Home() {
   return (
     <div>
       <h1>This is Home Page</h1>
-      {/* <Links />
+      <Links />
       <br />
       <br />
       <button onClick={goToAbout}>go to About</button><br />
       <button onClick={goToContact}>go to contact</button>
       <br />
       <br />
-      <Login /> */}
+      {/* <Login /> */}
       <Hooks />
     </div>
   );

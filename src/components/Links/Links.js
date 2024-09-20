@@ -10,6 +10,7 @@ function Links() {
                 <li><NavLink to={'/about'}>About</NavLink></li>
                 <li><NavLink to={'/contact'}>Contact</NavLink></li>
                 <li><NavLink to={'/profile'}>Profile</NavLink></li>
+                <li><NavLink to={'/api-data'}>Api Data</NavLink></li>
             </ul></div>
     )
 }
