@@ -12,9 +12,9 @@ import './index.css'
 
 
 
-export default function ProductCard({ product }) {
-    console.log(product)
-    const { title, image, price, rating } = product
+export default function ProductCard({ product, viewDetails }) {
+    const { id, title, image, price, rating } = product
+
     return (
         <Card sx={{ width: 350, marginTop: 10 }} >
             <div>
@@ -35,8 +35,9 @@ export default function ProductCard({ product }) {
             </CardContent>
             <CardActions>
                 <Button className='addToCartBtn' size="medium">Add to Cart</Button>
-                <Button className='viewBtn' size="medium">View Details</Button>
+                <Button onClick={() => viewDetails(id)} className='viewBtn' size="medium">View Details</Button>
             </CardActions>
+
         </Card>
     );
 }
