@@ -1,0 +1,8 @@
+.addToCartBtn {
+  background-color: purple !important;
+  color: white !important;
+}
+.viewBtn {
+  color: purple !important;
+  border: 1px solid purple !important;
+}

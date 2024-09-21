@@ -11,6 +11,7 @@ function Links() {
                 <li><NavLink to={'/contact'}>Contact</NavLink></li>
                 <li><NavLink to={'/profile'}>Profile</NavLink></li>
                 <li><NavLink to={'/api-data'}>Api Data</NavLink></li>
+                <li><NavLink to={'/cart-home'}>Cart Home Page</NavLink></li>
             </ul></div>
     )
 }

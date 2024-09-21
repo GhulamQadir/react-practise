@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 import useRoutesStore from '../store/routesStore'
 import MoreInfo from '../pages/About/MoreInfo'
 import ApiData from '../pages/Api-data/apiData'
+import CartHomePage from '../pages/Cart/Cart'
 
 export default function AppRouter() {
 
@@ -24,6 +25,7 @@ export default function AppRouter() {
                 <Route path='/contact' element={<Contact />} />
                 <Route path='*' element={<NotFound />} />
                 <Route path='/api-data' element={<ApiData />} />
+                <Route path='/cart-home' element={<CartHomePage />} />
             </Routes>
         </BrowserRouter>
 
