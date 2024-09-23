@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react'
 import useRoutesStore from '../store/routesStore'
 import MoreInfo from '../pages/About/MoreInfo'
 import ApiData from '../pages/Api-data/apiData'
-import EcommerceHomePage from '../pages/Ecommerce-App/Home'
 
 export default function AppRouter() {
 
@@ -25,7 +24,6 @@ export default function AppRouter() {
                 <Route path='/contact' element={<Contact />} />
                 <Route path='*' element={<NotFound />} />
                 <Route path='/api-data' element={<ApiData />} />
-                <Route path='/ecommerce-app' element={<EcommerceHomePage />} />
             </Routes>
         </BrowserRouter>
 

@@ -12,8 +12,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { useState } from 'react';
-import { useSearchParams } from "react-router-dom";
+import { Badge } from '@mui/material';
+import { useState, useContext } from 'react';
+import { useSearchParams, useNavigate } from "react-router-dom";
+import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
+import CartContext from '../../pages/Ecommerce-App/context';
 
 const drawerWidth = 240;
 const navItems = ['All', 'Electronics', 'Jewelery', "Men's clothing", "Women's clothing"];
@@ -24,11 +27,18 @@ function DrawerAppBar(props) {
 
   let [searchParams, setSearchParams] = useSearchParams();
 
+  const { cart } = useContext(CartContext)
+  console.log("cart=>>", cart.length)
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
 
+  const navigate = useNavigate();
+
+  const goToCartPage = () => {
+    navigate('/cart')
+  }
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
@@ -43,11 +53,24 @@ function DrawerAppBar(props) {
             </ListItemButton>
           </ListItem>
         ))}
+        <Box>
+          <IconButton
+            size="large"
+            aria-label="show 17 new notifications"
+            color="inherit" onClick={goToCartPage}
+          >
+            <Badge badgeContent={cart.length} color="error">
+              <ShoppingCartRoundedIcon />
+            </Badge>
+          </IconButton>
+        </Box>
       </List>
     </Box>
   );
 
   const container = window !== undefined ? () => window().document.body : undefined;
+
+
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -76,6 +99,17 @@ function DrawerAppBar(props) {
                 {item}
               </Button>
             ))}
+          </Box>
+          <Box>
+            <IconButton
+              size="large"
+              aria-label="show 17 new notifications"
+              color="inherit" onClick={goToCartPage}
+            >
+              <Badge badgeContent={cart.length} color="error">
+                <ShoppingCartRoundedIcon />
+              </Badge>
+            </IconButton>
           </Box>
         </Toolbar>
       </AppBar>

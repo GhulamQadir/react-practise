@@ -1,12 +1,15 @@
-import ProductCard from "../../libraries/material-ui/ProductCard";
-import DrawerAppBar from "../../libraries/material-ui/DrawerAppBar";
+import ProductCard from "../../../libraries/material-ui/ProductCard";
+import DrawerAppBar from "../../../libraries/material-ui/DrawerAppBar";
 import axios from "axios";
-import { useEffect, useState } from "react";
-import BasicModal from "../../libraries/material-ui/Modal";
+import { useContext, useEffect, useState } from "react";
+import BasicModal from "../../../libraries/material-ui/Modal";
 import { useSearchParams } from "react-router-dom";
+import CartContext from "../context";
+
 
 function EcommerceHomePage() {
 
+    const { cart, setCart } = useContext(CartContext)
     const [data, setData] = useState([])
     const [openModal, setOpen] = useState(false)
     const [prodDetails, setProdDetails] = useState({})
@@ -37,6 +40,14 @@ function EcommerceHomePage() {
             })
             .catch((error) => console.log(error))
     }
+
+
+    useEffect(() => {
+        const getCart = JSON.parse(localStorage.getItem("cart")) || [];
+        setCart(getCart)
+    }, [])
+
+
     return (
         <>
             <DrawerAppBar />

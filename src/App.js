@@ -20,6 +20,8 @@ import { MantineProvider } from '@mantine/core';
 import CollapseDesktop from './libraries/Maintine practise/AppShell'
 import BasicForm from './libraries/Formik/Form';
 import UserDetails from './context';
+import CartContext from './pages/Ecommerce-App/context';
+import EcommerceAppRouter from './pages/Ecommerce-App/config/router';
 // importing all images
 const images = require.context('./images', true)
 const imageList = images.keys().map(image => images(image));
@@ -96,18 +98,31 @@ const imageList = images.keys().map(image => images(image));
 
 
 
-// react router
-export default function App() {
-  const [userName, setUserName] = useState("")
-  return (
-    <UserDetails.Provider value={{ userName, setUserName }}>
-      <MantineProvider>
-        {/* <Theme /> */}
-        {/* <CollapseDesktop /> */}
-        <AppRouter />
-        {/* <TailwindPractise /> */}
+// // react router
+// export default function App() {
+//   const [userName, setUserName] = useState("")
+//   return (
+//     <UserDetails.Provider value={{ userName, setUserName }}>
+//       <MantineProvider>
+//         {/* <Theme /> */}
+//         {/* <CollapseDesktop /> */}
+//         <AppRouter />
+//         {/* <TailwindPractise /> */}
 
-        {/* <BasicForm /> */}
-      </MantineProvider>
-    </UserDetails.Provider>)
+//         {/* <BasicForm /> */}
+//       </MantineProvider>
+//     </UserDetails.Provider>)
+// }
+
+
+// ECOMMERCE APP
+export default function App() {
+  const [cart, setCart] = useState([]);
+
+  return (
+    <CartContext.Provider value={{ cart, setCart }}>
+      <EcommerceAppRouter />
+    </CartContext.Provider>)
 }
+
+
