@@ -8,19 +8,15 @@ function CartPage() {
         const getCart = JSON.parse(localStorage.getItem("cart")) || [];
         setCart(getCart)
     }, [])
-    console.log(cart)
     return (
         <div>
+            <h1>Cart Page</h1>
+
             {cart.map((item, index) => {
-                const { image, title, description, price, rating } = item
                 return (
-                    // <div>
-                    //     <img src={image} />
-                    // </div>
-                    <MediaControlCard product={item} />
+                    <MediaControlCard key={index} product={item} />
                 )
             })}
-            <h1>Cart Page</h1>
         </div>
     );
 }
