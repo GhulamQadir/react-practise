@@ -17,7 +17,7 @@ const style = {
     borderRadius: "10px"
 };
 
-export default function BasicModal({ openModal, closeModal, prodDetails }) {
+export default function BasicModal({ openModal, closeModal, prodDetails, addToCart }) {
     console.log("prodDetails=>>", prodDetails)
     return (
         <div>
@@ -28,7 +28,7 @@ export default function BasicModal({ openModal, closeModal, prodDetails }) {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <ViewDetailsCard prodDetails={prodDetails} />
+                    <ViewDetailsCard prodDetails={prodDetails} addToCart={addToCart} />
                 </Box>
             </Modal>
         </div>

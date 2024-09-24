@@ -9,7 +9,7 @@ import Button from '@mui/material/Button';
 import './index.css'
 
 
-export default function ViewDetailsCard({ prodDetails }) {
+export default function ViewDetailsCard({ prodDetails, addToCart }) {
 
     const { title, image, description, rating, price, category } = prodDetails
     return (
@@ -38,7 +38,7 @@ export default function ViewDetailsCard({ prodDetails }) {
                     <Typography component="div" variant="h6">RS {price}/-</Typography>
                     <Chip label={category} className='mt-2' />
                     <div className='mt-2'>
-                        <Button className='addToCartBtn' size="medium" >Add to Cart</Button>
+                        <Button onClick={() => addToCart(prodDetails)} className='addToCartBtn' size="medium" >Add to Cart</Button>
                     </div>
                 </CardContent>
             </Box>

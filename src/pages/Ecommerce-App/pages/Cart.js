@@ -10,7 +10,13 @@ function CartPage() {
     }, [])
     return (
         <div>
-            <h1>Cart Page</h1>
+            <div className="flex justify-around">
+
+                <div style={{ width: "24%" }}><h3>Product</h3></div>
+                <div><h3>Price</h3></div>
+                <div><h3>Quantity</h3></div>
+
+            </div>
 
             {cart.map((item, index) => {
                 return (
