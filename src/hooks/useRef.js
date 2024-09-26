@@ -9,7 +9,6 @@ function UseRefHook() {
     const increment = () => {
         setCount((oldVal) => oldVal + 1)
         headingRef.current.textContent = "Value Incremented"
-
     }
 
     const decrement = () => {

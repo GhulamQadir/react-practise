@@ -98,31 +98,31 @@ const imageList = images.keys().map(image => images(image));
 
 
 
-// // react router
-// export default function App() {
-//   const [userName, setUserName] = useState("")
-//   return (
-//     <UserDetails.Provider value={{ userName, setUserName }}>
-//       <MantineProvider>
-//         {/* <Theme /> */}
-//         {/* <CollapseDesktop /> */}
-//         <AppRouter />
-//         {/* <TailwindPractise /> */}
-
-//         {/* <BasicForm /> */}
-//       </MantineProvider>
-//     </UserDetails.Provider>)
-// }
-
-
-// ECOMMERCE APP
+// react router
 export default function App() {
-  const [cart, setCart] = useState([]);
-
+  const [userName, setUserName] = useState("")
   return (
-    <CartContext.Provider value={{ cart, setCart }}>
-      <EcommerceAppRouter />
-    </CartContext.Provider>)
+    <UserDetails.Provider value={{ userName, setUserName }}>
+      <MantineProvider>
+        {/* <Theme /> */}
+        {/* <CollapseDesktop /> */}
+        <AppRouter />
+        {/* <TailwindPractise /> */}
+
+        {/* <BasicForm /> */}
+      </MantineProvider>
+    </UserDetails.Provider>)
 }
+
+
+// // ECOMMERCE APP
+// export default function App() {
+//   const [cart, setCart] = useState([]);
+
+//   return (
+//     <CartContext.Provider value={{ cart, setCart }}>
+//       <EcommerceAppRouter />
+//     </CartContext.Provider>)
+// }
 
 
