@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import CartContext from "../context";
-import MediaControlCard from "../../../libraries/material-ui/cartPageProductCard";
+import MediaControlCard from "../material-ui/cartPageProductCard";
 
 function CartPage() {
     const { cart, setCart } = useContext(CartContext)
@@ -8,6 +8,7 @@ function CartPage() {
         const getCart = JSON.parse(localStorage.getItem("cart")) || [];
         setCart(getCart)
     }, [])
+
     return (
         <div>
             <div className="flex justify-around">
@@ -20,7 +21,7 @@ function CartPage() {
 
             {cart.map((item, index) => {
                 return (
-                    <MediaControlCard key={index} product={item} />
+                    <MediaControlCard key={index} product={item} index={index} />
                 )
             })}
         </div>

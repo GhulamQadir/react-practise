@@ -1,8 +1,8 @@
-import ProductCard from "../../../libraries/material-ui/ProductCard";
-import DrawerAppBar from "../../../libraries/material-ui/DrawerAppBar";
+import ProductCard from "../material-ui/ProductCard";
+import DrawerAppBar from "../material-ui/DrawerAppBar";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import BasicModal from "../../../libraries/material-ui/Modal";
+import BasicModal from "../material-ui/Modal";
 import { useSearchParams } from "react-router-dom";
 import CartContext from "../context";
 import Alert from '@mui/material/Alert';

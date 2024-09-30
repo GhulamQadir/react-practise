@@ -16,7 +16,7 @@ import { Badge } from '@mui/material';
 import { useState, useContext } from 'react';
 import { useSearchParams, useNavigate } from "react-router-dom";
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
-import CartContext from '../../pages/Ecommerce-App/context';
+import CartContext from '../context';
 
 const drawerWidth = 240;
 const navItems = ['All', 'Electronics', 'Jewelery', "Men's clothing", "Women's clothing"];
@@ -130,10 +130,6 @@ function DrawerAppBar(props) {
           {drawer}
         </Drawer>
       </nav>
-      {/* <Box component="main" sx={{ p: 3 }}>
-        <Toolbar />
-        <ProductCard />
-      </Box> */}
     </Box>
   );
 }

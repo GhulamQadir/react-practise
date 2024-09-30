@@ -1,21 +1,21 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import './App.css'
-import Car from './images/car.jpg'
-import Header from './components/header';
-import Footer from './components/footer';
-import users from './utils/usersData';
-import { Button } from './components/buttons/button1';
-import { Button as Button2 } from './components/buttons/button2';
-import Card from './components/card/card';
-import MainComponent from './components/mainComponent';
-import QrCode from './components/qr-code';
-import Login from './components/login';
-import UseEffectBtn from './hooks/useEffectBtn';
-import AppRouter from './config/router';
-import TailwindPractise from './libraries/tailwind/tailwind-practise'
-import Demo from './libraries/Maintine practise/AppLayout';
-import Theme from './libraries/Maintine practise/theme';
+// import './App.css'
+// import Car from './images/car.jpg'
+// import Header from './components/header';
+// import Footer from './components/footer';
+// import users from './utils/usersData';
+// import { Button } from './components/buttons/button1';
+// import { Button as Button2 } from './components/buttons/button2';
+// import Card from './components/card/card';
+// import MainComponent from './components/mainComponent';
+// import QrCode from './components/qr-code';
+// import Login from './components/login';
+// import UseEffectBtn from './hooks/useEffectBtn';
+// import AppRouter from './config/router';
+// import TailwindPractise from './libraries/tailwind/tailwind-practise'
+// import Demo from './libraries/Maintine practise/AppLayout';
+// import Theme from './libraries/Maintine practise/theme';
 import { MantineProvider } from '@mantine/core';
 import CollapseDesktop from './libraries/Maintine practise/AppShell'
 import BasicForm from './libraries/Formik/Form';
@@ -98,31 +98,31 @@ const imageList = images.keys().map(image => images(image));
 
 
 
-// react router
-export default function App() {
-  const [userName, setUserName] = useState("")
-  return (
-    <UserDetails.Provider value={{ userName, setUserName }}>
-      <MantineProvider>
-        {/* <Theme /> */}
-        {/* <CollapseDesktop /> */}
-        <AppRouter />
-        {/* <TailwindPractise /> */}
+// // react router
+// export default function App() {
+//   const [userName, setUserName] = useState("")
+//   return (
+//     <UserDetails.Provider value={{ userName, setUserName }}>
+//       <MantineProvider>
+//         {/* <Theme /> */}
+//         <CollapseDesktop />
+//         {/* <AppRouter /> */}
+//         {/* <TailwindPractise /> */}
 
-        {/* <BasicForm /> */}
-      </MantineProvider>
-    </UserDetails.Provider>)
-}
+//         {/* <BasicForm /> */}
+//       </MantineProvider>
+//     </UserDetails.Provider>)
+// }
 
 
 // // ECOMMERCE APP
-// export default function App() {
-//   const [cart, setCart] = useState([]);
+export default function App() {
+  const [cart, setCart] = useState([]);
 
-//   return (
-//     <CartContext.Provider value={{ cart, setCart }}>
-//       <EcommerceAppRouter />
-//     </CartContext.Provider>)
-// }
+  return (
+    <CartContext.Provider value={{ cart, setCart }}>
+      <EcommerceAppRouter />
+    </CartContext.Provider>)
+}
 
 
