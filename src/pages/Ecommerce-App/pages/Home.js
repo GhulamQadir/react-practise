@@ -58,8 +58,8 @@ function EcommerceHomePage() {
     });
     const { open, snackBarMessage, vertical, horizontal } = state;
 
-    const handleClick = (message) => {
-        setState({ ...state, open: true, snackBarMessage: message });
+    const handleClick = () => {
+        setState({ ...state, open: true, snackBarMessage: "Product added to cart" });
     };
 
     const handleClose = () => {
@@ -67,25 +67,19 @@ function EcommerceHomePage() {
     };
 
     const addToCart = (product) => {
-        console.log("home s chal rha ha")
-        let prodMatched = false
-        for (let i = 0; i < cart.length; i++) {
-            if (cart[i].id === product.id) {
-                prodMatched = true
-                handleClick("Product already added to cart!")
-            }
-        }
-        if (prodMatched === false) {
-            const cartData = JSON.parse(localStorage.getItem('cart')) || []
+        const cartData = JSON.parse(localStorage.getItem('cart')) || []
+        let indexOfProduct = cartData.findIndex(item => item.id === product.id)
+        if (indexOfProduct !== -1) {
+            cartData.splice(indexOfProduct, 1, { ...product, quantity: cartData[indexOfProduct].quantity + 1 })
+            localStorage.setItem('cart', JSON.stringify(cartData))
+            setCart(cartData)
+        } else {
             cartData.push({ ...product, quantity: 1 })
             localStorage.setItem('cart', JSON.stringify(cartData))
             setCart(cartData)
-            console.log("product added to cart")
-            handleClick("Product added to cart!")
+            handleClick()
         }
     }
-
-
     return (
         <>
             <DrawerAppBar />
@@ -109,4 +103,5 @@ function EcommerceHomePage() {
         </>
     )
 }
+
 export default EcommerceHomePage;

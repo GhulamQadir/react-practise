@@ -17,6 +17,7 @@ import { useState, useContext } from 'react';
 import { useSearchParams, useNavigate } from "react-router-dom";
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import CartContext from '../context';
+import CartDrawer from './CartDrawer';
 
 const drawerWidth = 240;
 const navItems = ['All', 'Electronics', 'Jewelery', "Men's clothing", "Women's clothing"];
@@ -24,20 +25,18 @@ const navItems = ['All', 'Electronics', 'Jewelery', "Men's clothing", "Women's c
 function DrawerAppBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
-
   let [searchParams, setSearchParams] = useSearchParams();
-
+  const [cartDrawer, setCartDrawer] = useState(false);
   const { cart } = useContext(CartContext)
-  console.log("cart=>>", cart.length)
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
 
-  const navigate = useNavigate();
 
-  const goToCartPage = () => {
-    navigate('/cart')
+  const toggleCartDrawer = () => {
+    setCartDrawer(!cartDrawer)
+
   }
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
@@ -57,7 +56,7 @@ function DrawerAppBar(props) {
           <IconButton
             size="large"
             aria-label="show 17 new notifications"
-            color="inherit" onClick={goToCartPage}
+            color="inherit" onClick={toggleCartDrawer}
           >
             <Badge badgeContent={cart.length} color="error">
               <ShoppingCartRoundedIcon />
@@ -104,7 +103,7 @@ function DrawerAppBar(props) {
             <IconButton
               size="large"
               aria-label="show 17 new notifications"
-              color="inherit" onClick={goToCartPage}
+              color="inherit" onClick={toggleCartDrawer}
             >
               <Badge badgeContent={cart.length} color="error">
                 <ShoppingCartRoundedIcon />
@@ -130,6 +129,7 @@ function DrawerAppBar(props) {
           {drawer}
         </Drawer>
       </nav>
+      <CartDrawer openDrawer={cartDrawer} closeDrawer={setCartDrawer} />
     </Box>
   );
 }
