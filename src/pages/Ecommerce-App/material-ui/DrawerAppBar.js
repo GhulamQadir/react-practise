@@ -14,7 +14,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { Badge } from '@mui/material';
 import { useState, useContext } from 'react';
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import CartContext from '../context';
 import CartDrawer from './CartDrawer';
@@ -25,10 +25,9 @@ const navItems = ['All', 'Electronics', 'Jewelery', "Men's clothing", "Women's c
 function DrawerAppBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
-  let [searchParams, setSearchParams] = useSearchParams();
   const [cartDrawer, setCartDrawer] = useState(false);
   const { cart } = useContext(CartContext)
-
+  const navigate = useNavigate()
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
@@ -39,15 +38,15 @@ function DrawerAppBar(props) {
 
   }
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
+    <Box onClick={handleDrawerToggle}>
+      <Typography variant="h6" sx={{ my: 2, textAlign: "center" }}>
         Easy Cart
       </Typography>
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem onClick={() => setSearchParams({ category: item.toLowerCase() })} key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
+          <ListItem onClick={() => navigate(`/?category=${item.toLowerCase()}`)} disablePadding>
+            <ListItemButton>
               <ListItemText primary={item} />
             </ListItemButton>
           </ListItem>
@@ -74,7 +73,7 @@ function DrawerAppBar(props) {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar style={{ backgroundColor: "purple" }} component="nav">
+      <AppBar style={{ backgroundColor: "purple" }} component="nav" position='sticky'>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -94,7 +93,7 @@ function DrawerAppBar(props) {
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button onClick={() => setSearchParams({ category: item.toLowerCase() })} key={item} sx={{ color: '#fff' }}>
+              <Button color='white' onClick={() => navigate(`/?category=${item.toLowerCase()}`)}>
                 {item}
               </Button>
             ))}
@@ -119,7 +118,7 @@ function DrawerAppBar(props) {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },

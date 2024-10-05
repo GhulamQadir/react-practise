@@ -7,12 +7,13 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import CartContext from '../context';
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { useContext } from 'react';
 import IconButton from '@mui/material/IconButton';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { IconTrash } from '@tabler/icons-react';
+import { Link } from 'react-router-dom';
 
 export default function CartListItems({ closeDrawer }) {
     const { cart, setCart } = useContext(CartContext)
@@ -59,7 +60,7 @@ export default function CartListItems({ closeDrawer }) {
                                         variant="body2"
                                         sx={{ color: 'text.primary', display: 'inline' }}
                                     >
-                                        RS {price*quantity}
+                                        RS {price * quantity}
                                     </Typography>
                                     <Box style={{ display: "flex", justifyContent: "space-around", alignItems: "center" }}>
                                         <Typography
@@ -86,7 +87,12 @@ export default function CartListItems({ closeDrawer }) {
                     </ListItem>
                     <Divider variant="inset" component="li" />
                 </div>
-            })}
+            })}{cart.length &&
+                <Link to="/checkout">
+                    <Button style={{ width: "100%", backgroundColor: "purple", color: "white" }} size="small">
+                        Checkout
+                    </Button>
+                </Link>}
         </List>
     );
 }

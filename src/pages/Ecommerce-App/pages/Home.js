@@ -99,6 +99,7 @@ function EcommerceHomePage() {
                 {data.map((item, index) => {
                     return <ProductCard addToCart={addToCart} viewDetails={viewDetails} product={item} key={index} />
                 })}
+
             </div>
         </>
     )
